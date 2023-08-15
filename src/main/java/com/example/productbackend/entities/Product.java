@@ -2,14 +2,21 @@ package com.example.productbackend.entities;
 
 import java.io.Serializable;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="TBL_PRODUCT")
 public class Product implements Serializable {
 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id // Define a chave primária
     private Long id;
+    @Column(name="Badonguers" ,length = 1024, nullable = false, unique = true)
     private String name;
     private Double price;
 
